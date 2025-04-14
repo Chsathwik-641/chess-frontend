@@ -1,0 +1,176 @@
+.App {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+}
+
+.board {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.settings {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  color: white;
+  font-size: 1rem;
+}
+.turn p {
+  color: black;
+}
+.settings p {
+  margin: 10px 0;
+  text-align: center;
+  font-size: 2em;
+}
+.chessboard {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  aspect-ratio: 1;
+  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+  border: 4px solid #333;
+  box-sizing: border-box;
+  transition: none;
+}
+
+.square {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+.square img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  cursor: grab;
+  pointer-events: auto;
+  touch-action: none;
+  transition: none;
+}
+
+.square img:active {
+  cursor: grabbing;
+  transform: none;
+  opacity: 1;
+}
+
+.square:hover {
+  box-shadow: none;
+  transition: none;
+}
+
+.light.classic {
+  background-color: #f0d9b5;
+}
+.dark.classic {
+  background-color: #b58863;
+}
+
+.light.blue {
+  background-color: #e0eaff;
+}
+.dark.blue {
+  background-color: #567ebb;
+}
+
+.light.green {
+  background-color: #e0ffe0;
+}
+.dark.green {
+  background-color: #57a957;
+}
+
+.light {
+  background-color: #f0d9b5;
+}
+.dark {
+  background-color: #b58863;
+}
+
+.theme-panel {
+  margin-bottom: 20px;
+  padding: 1rem;
+  background-color: #2c2c2c;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 90%;
+  max-width: 300px;
+}
+
+.theme-panel h3 {
+  color: #ffffff;
+  font-size: 1.2rem;
+  margin: 10px;
+}
+
+.theme-panel select {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  background-color: #444;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.theme-panel select:hover {
+  background-color: #555;
+}
+
+.theme-panel select:focus {
+  border: 2px solid #888;
+}
+
+@media (max-width: 900px) and (orientation: landscape) {
+  .App {
+    flex-direction: row;
+  }
+
+  .board {
+    flex: 2;
+    height: 100vh;
+  }
+
+  .settings {
+    flex: 1;
+    height: 100vh;
+  }
+}
+
+@media (max-width: 768px) and (orientation: portrait) {
+  .App {
+    flex-direction: column;
+  }
+
+  .board,
+  .settings {
+    width: 100%;
+    height: 50%;
+  }
+}
