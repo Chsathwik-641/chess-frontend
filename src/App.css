@@ -173,7 +173,9 @@
   .App {
     flex-direction: column;
   }
-
+  .square div img {
+    margin: 10px;
+  }
   .board,
   .settings {
     width: 100%;
