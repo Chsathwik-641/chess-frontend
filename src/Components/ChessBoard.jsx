@@ -46,13 +46,9 @@ const Chessboard = ({ board, boardTheme, onMove, color, turn }) => {
               onTouchEnd={(e) => handleTouchEnd(e, row, col)}
             >
               {piece && (
-                <img
-                  src={`/Pieces/${pieceCode}.png`}
-                  alt={pieceCode}
-                  draggable
-                  onDragStart={() => handleDragStart(row, col)}
-                  onTouchStart={(e) => handleTouchStart(e, row, col)}
-                />
+                <div draggable onDragStart={() => handleDragStart(row, col)}>
+                  <img src={`/Pieces/${pieceCode}.png`} alt={pieceCode} />
+                </div>
               )}
             </div>
           );
