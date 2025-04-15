@@ -15,6 +15,16 @@ const Chessboard = ({ board, boardTheme, onMove, color, turn }) => {
     setDraggedPiece(null);
   };
 
+  const handleTouchStart = (e, row, col) => {
+    e.preventDefault();
+    handleDragStart(row, col);
+  };
+
+  const handleTouchEnd = (e, row, col) => {
+    e.preventDefault();
+    handleDrop(row, col);
+  };
+
   if (!Array.isArray(board)) return <div>Invalid board</div>;
 
   return (
@@ -33,6 +43,7 @@ const Chessboard = ({ board, boardTheme, onMove, color, turn }) => {
               className={squareClass}
               onDragOver={(e) => e.preventDefault()}
               onDrop={() => handleDrop(row, col)}
+              onTouchEnd={(e) => handleTouchEnd(e, row, col)}
             >
               {piece && (
                 <img
@@ -40,6 +51,7 @@ const Chessboard = ({ board, boardTheme, onMove, color, turn }) => {
                   alt={pieceCode}
                   draggable
                   onDragStart={() => handleDragStart(row, col)}
+                  onTouchStart={(e) => handleTouchStart(e, row, col)}
                 />
               )}
             </div>
