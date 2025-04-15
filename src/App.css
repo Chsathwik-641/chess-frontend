@@ -59,13 +59,14 @@
   overflow: hidden;
 }
 
-.square img {
-  max-width: 90%;
-  max-height: 90%;
+.square div img {
+  max-width: 60%;
+  max-height: 60%;
   object-fit: contain;
   cursor: grab;
   pointer-events: auto;
   touch-action: none;
+  margin-left: 20px;
 }
 
 .square img:active {
@@ -160,10 +161,11 @@
     flex: 1;
     height: 100vh;
   }
-  .square img {
+  .square div img {
     transition: none;
     user-select: none;
     -webkit-user-drag: none;
+    margin: 10px;
   }
 }
 
