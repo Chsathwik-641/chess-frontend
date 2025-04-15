@@ -66,9 +66,6 @@
   cursor: grab;
   pointer-events: auto;
   touch-action: none;
-  transition: none;
-  user-select: none;
-  -webkit-user-drag: none;
 }
 
 .square img:active {
