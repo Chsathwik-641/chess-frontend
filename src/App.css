@@ -160,6 +160,11 @@
     flex: 1;
     height: 100vh;
   }
+  .square img {
+    transition: none;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
 }
 
 @media (max-width: 768px) and (orientation: portrait) {
