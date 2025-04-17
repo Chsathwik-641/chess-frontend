@@ -14,21 +14,21 @@ function App() {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
+    const startGame = async () => {
+      try {
+        const res = await fetch(`${API}/game/start`, { method: "POST" });
+        const data = await res.json();
+        setGameId(data.gameId);
+        setBoard(data.board);
+        setTurn(data.turn);
+        setMessage("Game started, white moves first");
+      } catch (error) {
+        console.error("Error starting game:", error);
+        setMessage("Failed to start game. Please try again.");
+      }
+    };
     startGame();
   }, []);
-  const startGame = async () => {
-    try {
-      const res = await fetch(`${API}/game/start`, { method: "POST" });
-      const data = await res.json();
-      setGameId(data.gameId);
-      setBoard(data.board);
-      setTurn(data.turn);
-      setMessage("Game started, white moves first");
-    } catch (error) {
-      console.error("Error starting game:", error);
-      setMessage("Failed to start game. Please try again.");
-    }
-  };
 
   const handleMove = async (from, to) => {
     try {
