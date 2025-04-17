@@ -3,7 +3,7 @@ import Chessboard from "./Components/ChessBoard";
 import ThemePanel from "./Components/ThemePanel";
 import "./App.css";
 
-const API = "http://localhost:5000";
+const API = "https://chess-backend-production.up.railway.app";
 
 function App() {
   const [theme, setTheme] = useState("classic");

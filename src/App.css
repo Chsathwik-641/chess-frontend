@@ -146,21 +146,6 @@
 .theme-panel select:focus {
   border: 2px solid #888;
 }
-button {
-  padding: 10px 20px;
-  background-color: #4caf50;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.1s ease;
-}
-
-button:hover {
-  background-color: #45a049;
-  transform: scale(1.05);
-}
-
 @media (max-width: 900px) and (orientation: landscape) {
   .App {
     flex-direction: row;
