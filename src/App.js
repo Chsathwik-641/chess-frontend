@@ -3,7 +3,7 @@ import Chessboard from "./Components/ChessBoard";
 import ThemePanel from "./Components/ThemePanel";
 import "./App.css";
 
-const API = "https://chess-backend-production.up.railway.app";
+const API = "http://localhost:5000";
 
 function App() {
   const [theme, setTheme] = useState("classic");
@@ -12,24 +12,23 @@ function App() {
   const [board, setBoard] = useState([]);
   const [turn, setTurn] = useState("white");
   const [message, setMessage] = useState("");
-  const [isCheck, setisCheck] = useState(false);
 
   useEffect(() => {
-    const startGame = async () => {
-      try {
-        const res = await fetch(`${API}/game/start`, { method: "POST" });
-        const data = await res.json();
-        setGameId(data.gameId);
-        setBoard(data.board);
-        setTurn(data.turn);
-        setMessage("Game started, white moves first");
-      } catch (error) {
-        console.error("Error starting game:", error);
-        setMessage("Failed to start game. Please try again.");
-      }
-    };
     startGame();
   }, []);
+  const startGame = async () => {
+    try {
+      const res = await fetch(`${API}/game/start`, { method: "POST" });
+      const data = await res.json();
+      setGameId(data.gameId);
+      setBoard(data.board);
+      setTurn(data.turn);
+      setMessage("Game started, white moves first");
+    } catch (error) {
+      console.error("Error starting game:", error);
+      setMessage("Failed to start game. Please try again.");
+    }
+  };
 
   const handleMove = async (from, to) => {
     try {
@@ -46,7 +45,6 @@ function App() {
         setBoard(data.board);
         setTurn(data.turn);
         setColor(data.turn);
-        setisCheck(data.check);
 
         if (data.gameOver) {
           setMessage(data.winner ? `${data.winner} wins!` : "Game over!");
